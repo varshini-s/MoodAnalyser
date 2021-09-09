@@ -21,12 +21,12 @@ public class MoodAnalyserTest {
 		}
 		catch (MoodAnalysisException e) 
 		{
-			
+
 			e.printStackTrace();
 		}
-		
+
 	}
-	
+
 	@Test
 	public void givenMessage_WhenNoSad_ShouldReturnHappy() 
 	{
@@ -41,7 +41,7 @@ public class MoodAnalyserTest {
 
 			e.printStackTrace();
 		}
-		
+
 	}
 
 	@Test
@@ -54,12 +54,29 @@ public class MoodAnalyserTest {
 			ExpectedException exceptionRule = ExpectedException.none();
 			exceptionRule.expect(MoodAnalysisException.class);
 			mood = moodAnalyser.analyseMood(null);
-			
+
 		} catch (MoodAnalysisException e) 
 		{
 			e.printStackTrace();
 		}
-		
-		
+
+	}
+
+	@Test
+	public void givenEmptyMood_ShouldThrowException() 
+	{
+		MoodAnalyser moodAnalyser = new MoodAnalyser();
+		String mood;
+		try
+		{
+			ExpectedException exceptionRule = ExpectedException.none();
+			exceptionRule.expect(MoodAnalysisException.class);
+			mood = moodAnalyser.analyseMood("");
+
+		} catch (MoodAnalysisException e) 
+		{
+			e.printStackTrace();
+		}
+
 	}
 }
