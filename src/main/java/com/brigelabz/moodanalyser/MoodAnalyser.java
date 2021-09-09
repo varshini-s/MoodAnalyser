@@ -4,7 +4,7 @@ public class MoodAnalyser
 {
 
 
-	public String analyseMood(String message)
+	public String analyseMood(String message) throws MoodAnalysisException
 	{
 		try
 		{
@@ -18,9 +18,8 @@ public class MoodAnalyser
 			}
 			
 		}
-		catch (NullPointerException e) 
-		{
-			return "HAPPY";
+		catch (NullPointerException e) {
+			throw new MoodAnalysisException("Please enter valid mood");
 		}
 		
 
