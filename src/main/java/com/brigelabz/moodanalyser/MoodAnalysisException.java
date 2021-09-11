@@ -1,10 +1,22 @@
 package com.brigelabz.moodanalyser;
 
-public class MoodAnalysisException extends Exception 
+
+public class MoodAnalysisException extends RuntimeException 
 {
-	
-	public MoodAnalysisException(String Message) {
-		super(Message);
+
+	enum ExceptionType 
+	{
+		ENTERED_NULL, ENTERED_EMPTY
 	}
 
+	ExceptionType type;
+
+	public MoodAnalysisException(ExceptionType type, String message) 
+	{
+
+		super(message);
+		this.type = type;
+
+	}
 }
+
