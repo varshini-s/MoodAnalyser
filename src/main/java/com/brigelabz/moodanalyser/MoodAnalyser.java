@@ -1,5 +1,7 @@
 package com.brigelabz.moodanalyser;
 
+import com.brigelabz.moodanalyser.MoodAnalysisException.ExceptionType;
+
 public class MoodAnalyser 
 {
 
@@ -8,6 +10,10 @@ public class MoodAnalyser
 	{
 		try
 		{
+			if(message.length()==0)
+			{
+				throw new MoodAnalysisException(ExceptionType.ENTERED_EMPTY,"Please enter valid mood");
+			}
 			if(message.contains("sad"))
 			{
 				return "SAD";
@@ -20,7 +26,7 @@ public class MoodAnalyser
 		}
 		catch (NullPointerException e) 
 		{
-			throw new MoodAnalysisException("Please enter valid mood");
+			throw new MoodAnalysisException(ExceptionType.ENTERED_NULL,"Please enter valid mood");
 		}
 
 
